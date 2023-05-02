@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login and Registration</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.message').fadeOut(4000);
+            })
+        </script>
+    </head>
+    <body>
+        <div>
+            <form action="/login" method="post">
+                <h1>Login</h1>
+                <label>
+                    Email Address: <input type="text" name="email">
+                </label>
+                <label>
+                    Password: <input type="password" name="password">
+                </label>
+                <input type="submit" value="Login">
+            </form>
+            <form action="/register" method="post">
+                <h1>Register</h1>
+                <label>
+                    First Name: <input type="text" name="first_name">
+                </label>
+                <label>
+                    Last Name: <input type="text" name="last_name">
+                </label>
+                <label>
+                    Email Address: <input type="text" name="email">
+                </label>
+                <label>
+                    Password: <input type="password" name="password">
+                </label>
+                <label>
+                    Confirm Password: <input type="password" name="confirm_password">
+                </label>
+                <input id="register" type="submit" value="Register">
+            </form>
+        </div>
+        <div class="message">
+            <% if (messages) {
+                for (let i = 0; i < messages.length; i++) { %>
+                    <p class="<%= (color == 'green')?'success': 'error' %>"><%= messages[i] %></p>
+                <% } 
+            } %>
+        </div>
+    </body>
+</html>
